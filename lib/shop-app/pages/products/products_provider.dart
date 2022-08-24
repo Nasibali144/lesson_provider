@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lesson_provider/shop-app/models/category_model.dart';
 import 'package:lesson_provider/shop-app/models/product_model.dart';
 import 'package:lesson_provider/shop-app/pages/detail/datail_page.dart';
+import 'package:lesson_provider/shop-app/pages/order/order_page.dart';
 import 'package:lesson_provider/shop-app/services/mock_data.dart';
 
 class ProductsProvider extends ChangeNotifier {
@@ -23,8 +24,8 @@ class ProductsProvider extends ChangeNotifier {
         .map((product) => Product.fromJson(product)).toList();
   }
 
-  void onTapBasket() {
-    // todo write code
+  void onTapBasket({required BuildContext context}) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const OrderPage()));
   }
 
   void openDetailPage({required BuildContext context, required Product product}) {
